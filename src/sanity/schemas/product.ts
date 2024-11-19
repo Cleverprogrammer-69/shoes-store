@@ -63,6 +63,7 @@ export default defineType({
       name: "ratings",
       title: "Ratings",
       description: "Ratings must be equal to or less than 5",
+      validation: (rule) => rule.required(),
     }),
     defineField({
       type: "boolean",
@@ -89,7 +90,7 @@ export default defineType({
     select: {
       title: "title",
       media: "image",
-      position: "position"
+      position: "position",
     },
-  }
+  },
 });
