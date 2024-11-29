@@ -12,7 +12,7 @@ import { ProductList } from "@/components/product/ProductList";
 import { AddToCartButton } from "@/components/product/AddToCartButton";
 import { FormatedPrice } from "@/components/helperComponents/FormatedPrice";
 
-interface Props {
+interface PageProps {
   params: {
     slug: string;
   };
@@ -34,7 +34,7 @@ function RatingStars({ rating }: { rating: number }) {
   );
 }
 
-export default async function Page({ params }: Props) {
+export default async function Page({ params }: PageProps) {
   const { slug } = await Promise.resolve(params);
   const query = groq`*[_type == 'product' && slug.current == $slug][0]{
     ...
