@@ -17,7 +17,7 @@ export default function SuccessPage() {
   const [orderNumber, setOrderNumber] = useState<string | null>(null);
   const [totalAmount, setTotalAmount] = useState<number>();
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<unknown | null>(null);
   const [resData, setResData] = useState<Order | null>(null);
   const populatedCart = useAppSelector((state) => state.populatedCart);
   const dispatch = useAppDispatch();

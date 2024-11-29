@@ -14,14 +14,12 @@ import { Container } from "../container/Container";
 import Link from "next/link";
 
 interface AddToCartButtonProps {
-  productId: string;
   title: string;
   item: ProductData;
   className?: string;
 }
 
 export function AddToCartButton({
-  productId,
   title,
   item,
   className,

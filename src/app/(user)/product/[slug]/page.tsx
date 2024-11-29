@@ -7,16 +7,10 @@ import { getBestSellersProductData } from "@/lib/getData";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Star, Truck, RotateCcw, ShieldCheck } from 'lucide-react';
+import { Star, Truck, RotateCcw, ShieldCheck } from "lucide-react";
 import { ProductList } from "@/components/product/ProductList";
 import { AddToCartButton } from "@/components/product/AddToCartButton";
 import { FormatedPrice } from "@/components/helperComponents/FormatedPrice";
-
-interface PageProps {
-  params: {
-    slug: string;
-  };
-}
 
 function RatingStars({ rating }: { rating: number }) {
   return (
@@ -25,17 +19,25 @@ function RatingStars({ rating }: { rating: number }) {
         <Star
           key={i}
           className={`h-5 w-5 ${
-            i < Math.floor(rating) ? "text-yellow-400 fill-yellow-400" : "text-gray-300"
+            i < Math.floor(rating)
+              ? "text-yellow-400 fill-yellow-400"
+              : "text-gray-300"
           }`}
         />
       ))}
-      <span className="ml-2 text-sm text-muted-foreground">{rating.toFixed(1)}</span>
+      <span className="ml-2 text-sm text-muted-foreground">
+        {rating.toFixed(1)}
+      </span>
     </div>
   );
 }
 
-export default async function Page({ params }: PageProps) {
-  const { slug } = await Promise.resolve(params);
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const slug = (await params).slug;
   const query = groq`*[_type == 'product' && slug.current == $slug][0]{
     ...
   }`;
@@ -56,22 +58,23 @@ export default async function Page({ params }: PageProps) {
               className="rounded-lg object-cover"
             />
           </div>
-        
         </div>
 
         {/* Product Details */}
         <div className="flex flex-col space-y-4">
           <h1 className="text-3xl font-bold">{productData.title}</h1>
           <RatingStars rating={productData.ratings} />
-          <p className="text-2xl font-bold text-primary"><FormatedPrice amount={productData.price} /> </p>
+          <p className="text-2xl font-bold text-primary">
+            <FormatedPrice amount={productData.price} />{" "}
+          </p>
           <p className="text-muted-foreground">{productData.description}</p>
-          
+
           <div className="flex items-center space-x-2">
             <span className="font-semibold">Category:</span>
             <span>{productData.category[0].title}</span>
           </div>
 
-          <AddToCartButton item={productData} />
+          <AddToCartButton title={productData.title} item={productData} />
 
           <div className="grid grid-cols-2 gap-4 pt-4">
             <div className="flex items-center space-x-2">

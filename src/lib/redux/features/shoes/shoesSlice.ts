@@ -3,6 +3,7 @@ import { ProductData, UserInfo, ShoesState } from "@/types/types";
 import { fetchWithAuth } from "@/lib/fetchWithAuth";
 import { groq } from "next-sanity";
 import { client } from "@/sanity/lib/client";
+import { CartItem } from "@/db/schema/carts";
 
 const initialState: ShoesState = {
   cart: [],
@@ -37,7 +38,7 @@ export const fetchAndPopulateCart = createAsyncThunk(
       console.log("rawCart: ", rawCart);
 
       // Fetch product details from Sanity
-      const productIds = rawCart.items.map((item) => item.productId);
+      const productIds = rawCart.items.map((item: CartItem) => item.productId);
       console.log("ProductIds: ", productIds);
       const query = groq`*[_type == "product" && _id in $ids]{
         _id,
@@ -45,10 +46,10 @@ export const fetchAndPopulateCart = createAsyncThunk(
         "image": image.asset->url,
         price
       }`;
-      const products = await client.fetch(query, { ids: productIds });
+      const products: ProductData[] = await client.fetch(query, { ids: productIds });
       console.log("Sanity products: ", products);
       const populatedCart = rawCart.items
-        .map((item) => {
+        .map((item: CartItem) => {
           const product = products.find((p) => p._id === item.productId);
           if (product) {
             return {
@@ -60,7 +61,7 @@ export const fetchAndPopulateCart = createAsyncThunk(
               subtotal: product.price * item.quantity,
             };
           }
-          console.warn(`Product not found for ID: ${item._id}`);
+          console.warn(`Product not found for ID: ${item.productId}`);
           return null;
         })
         .filter(Boolean); // Remove null entries

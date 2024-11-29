@@ -89,7 +89,7 @@ export function ProductCard({ item }: { item: ProductData }) {
           </div>
         </CardContent>
         <CardFooter className="mt-auto p-4">
-          <AddToCartButton productId={item._id} title={item.title} item={item} />
+          <AddToCartButton title={item.title} item={item} />
         </CardFooter>
       </Card>
     </div>

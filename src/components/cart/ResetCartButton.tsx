@@ -33,7 +33,7 @@ export const ResetCartButton = () => {
         toast({
           variant: 'destructive',
           title: "Error clearing cart",
-          description: error.message,
+          description: error as string,
           duration: 2000,
         })
       } finally{
