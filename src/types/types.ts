@@ -1,60 +1,105 @@
-export type CategoryData = {
-  _id: string; // unique identifier
-  _rev: string; // revision string
-  _type: "category"; // constant indicating the document type
-  _createdAt: string; // ISO 8601 timestamp
-  _updatedAt: string; // ISO 8601 timestamp
-  title: string; // required
-  description?: string; // optional description
-  image?: {
-    _type: "image";
-    asset: {
-      _type: "reference";
-      _ref: string; // Reference to the image asset
-    };
-    crop?: {
-      _type: "sanity.imageCrop";
-      top?: number;
-      bottom?: number;
-      left?: number;
-      right?: number;
-    };
-    hotspot?: {
-      _type: "sanity.imageHotspot";
-      x?: number;
-      y?: number;
-      height?: number;
-      width?: number;
-    };
-  }; // optional image
+export type ImageData = {
+  _type: "image";
+  asset: {
+    _type: "reference";
+    _ref: string;
+    url: string;
+  };
 };
 
+export type CategoryData = {
+  _id: string;
+  _rev: string;
+  _type: "category";
+  _createdAt: string;
+  _updatedAt: string;
+  title: string;
+  description?: string;
+  image?: ImageData;
+};
 
 export type ProductData = {
   _id: string;
   _rev: string;
   _type: "product";
-  _createdAt: string; // ISO 8601 timestamp
-  _updatedAt: string; // ISO 8601 timestamp
-  title: string; // required
+  _createdAt: string;
+  _updatedAt: string;
+  title: string;
   slug: {
     _type: "slug";
-    current: string; // required
+    current: string;
   };
-  description?: string; // optional
-  image: {
-    _type: "image";
-    asset: {
-      _type: "reference";
-      _ref: string; // Image reference ID
-    };
-  }; // optional
-  category: Array<CategoryData>; // array of Category types
-  price: number; // required
-  rowprice?: number; // optional
-  ratings: number; // optional, should be <= 5
-  isnew?: boolean; // optional
-  position?: string; // optional
-  brand?: string; // optional
-  quantity?: number; // optional
+  description?: string;
+  image: ImageData;
+  category: Array<CategoryData>;
+  price: number;
+  rowprice?: number;
+  ratings: number;
+  isnew?: boolean;
+  position?: string;
+  brand?: string;
+  quantity?: number;
 };
+
+export interface CartItem extends ProductData {
+  itemQuantity: number;
+}
+export type PopulatedCartItem = {
+  _id: string; 
+  name: string; 
+  image: string; 
+  price: number; 
+  quantity: number; 
+  subtotal: number; 
+  category?: string[]; 
+  brand?: string; 
+  isnew?: boolean; 
+  ratings?: number; 
+};
+
+
+export interface UserInfo {
+  id: string;
+  name: string;
+  email: string;
+}
+
+export interface ShoesState {
+  cart: CartItem[]; 
+  populatedCart: PopulatedCartItem[]; 
+  userInfo: UserInfo | null;
+  favorite: ProductData[];
+  loading: boolean;
+  cartLoading: boolean;
+  favoriteLoading: boolean;
+  error: never | string | unknown | null;
+}
+
+
+export type CartItemRow = {
+  _id: string;
+  name: string;
+  image: string;
+  price: number;
+  quantity: number;
+  subtotal: number;
+};
+
+export interface Order {
+  id: number;
+  sessionId: string;
+  userId: string;
+  status: string;
+  totalAmount: string;
+  createdAt: string; 
+  updatedAt: string; 
+  items: OrderItem[];
+}
+
+export interface OrderItem {
+  productId: string;
+  name: string;
+  price: number;
+  quantity: number;
+}
+

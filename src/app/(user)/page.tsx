@@ -6,10 +6,12 @@ import { ProductList } from "@/components/product/ProductList";
 
 export default function Home() {
   return (
-   <Container className="py-10">
-    <Banner />
-    <Facilities />
-    <ProductList />
-   </Container>
+    <Container className="py-10">
+      <Banner />
+      <Facilities />
+
+      <h2 className="text-3xl font-bold text-center mb-8">Our Products</h2>
+      <ProductList />
+    </Container>
   );
 }

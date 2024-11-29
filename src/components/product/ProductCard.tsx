@@ -8,6 +8,7 @@ import { Star, StarHalf } from "lucide-react";
 import Link from "next/link";
 import { AddToCartButton } from "./AddToCartButton";
 import { ProductCardSkeleton } from "./ProductCardSkeleton";
+import { FormatedPrice } from "../helperComponents/FormatedPrice";
 
 function RatingStars({ rating }: { rating: number }) {
   const fullStars = Math.floor(rating);
@@ -18,17 +19,17 @@ function RatingStars({ rating }: { rating: number }) {
       {[...Array(5)].map((_, index) => {
         if (index < fullStars) {
           return (
-            <Star key={index} className="w-4 h-4 fill-primary text-primary" />
+            <Star key={index} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
           );
         } else if (index === fullStars && hasHalfStar) {
           return (
             <StarHalf
               key={index}
-              className="w-4 h-4 fill-primary text-primary"
+              className="w-4 h-4 fill-yellow-400 text-yellow-400"
             />
           );
         } else {
-          return <Star key={index} className="w-4 h-4 text-muted-foreground" />;
+          return <Star key={index} className="w-4 h-4 text-gray-300" />;
         }
       })}
       <span className="ml-2 text-sm text-muted-foreground">
@@ -76,7 +77,7 @@ export function ProductCard({ item }: { item: ProductData }) {
             </p>
             <div className="mt-2 flex items-center justify-between">
               <span className="text-lg font-bold text-primary">
-                ₹{item.price}
+                <FormatedPrice amount={item.price} />
               </span>
               <span className="text-sm text-muted-foreground">
                 {item.category[0].title}
@@ -88,7 +89,7 @@ export function ProductCard({ item }: { item: ProductData }) {
           </div>
         </CardContent>
         <CardFooter className="mt-auto p-4">
-          <AddToCartButton />
+          <AddToCartButton productId={item._id} title={item.title} item={item} />
         </CardFooter>
       </Card>
     </div>

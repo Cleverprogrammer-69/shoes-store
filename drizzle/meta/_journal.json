@@ -1,0 +1,181 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1732224564287,
+      "tag": "0000_living_mephisto",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1732394098524,
+      "tag": "0001_lean_moondragon",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1732394289482,
+      "tag": "0002_elite_champions",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1732394822749,
+      "tag": "0003_steep_wong",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1732395254961,
+      "tag": "0004_motionless_champions",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1732395491031,
+      "tag": "0005_productive_sunset_bain",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1732396625662,
+      "tag": "0006_goofy_mandroid",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1732454568723,
+      "tag": "0007_boring_grim_reaper",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1732455838345,
+      "tag": "0008_certain_umar",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1732456239066,
+      "tag": "0009_curious_senator_kelly",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1732456478810,
+      "tag": "0010_lying_next_avengers",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1732456953239,
+      "tag": "0011_orange_skaar",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1732458299765,
+      "tag": "0012_fine_mephisto",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1732460957838,
+      "tag": "0013_neat_makkari",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1732461460714,
+      "tag": "0014_violet_ben_urich",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "7",
+      "when": 1732461618755,
+      "tag": "0015_nasty_big_bertha",
+      "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "7",
+      "when": 1732461784951,
+      "tag": "0016_living_sleepwalker",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "7",
+      "when": 1732462082244,
+      "tag": "0017_glorious_mercury",
+      "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "7",
+      "when": 1732483298722,
+      "tag": "0018_handy_living_tribunal",
+      "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "7",
+      "when": 1732484862863,
+      "tag": "0019_premium_hammerhead",
+      "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "7",
+      "when": 1732486086699,
+      "tag": "0020_steep_lady_ursula",
+      "breakpoints": true
+    },
+    {
+      "idx": 21,
+      "version": "7",
+      "when": 1732486392817,
+      "tag": "0021_keen_pestilence",
+      "breakpoints": true
+    },
+    {
+      "idx": 22,
+      "version": "7",
+      "when": 1732489261230,
+      "tag": "0022_unique_vulture",
+      "breakpoints": true
+    },
+    {
+      "idx": 23,
+      "version": "7",
+      "when": 1732489352034,
+      "tag": "0023_burly_queen_noir",
+      "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "7",
+      "when": 1732859898618,
+      "tag": "0024_solid_leader",
+      "breakpoints": true
+    }
+  ]
+}

@@ -1,13 +1,14 @@
-import React from 'react'
+import StoreProvider from "@/components/provider/StoreProvider";
+import React from "react";
 
-const RootLayout = ({children}:{children: React.ReactNode}) => {
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang='en'>
-        <body>
-            {children}
-        </body>
+    <html lang="en">
+      <body>
+        <StoreProvider>{children}</StoreProvider>
+      </body>
     </html>
-  )
-}
+  );
+};
 
-export default RootLayout
+export default RootLayout;

@@ -1,0 +1,1 @@
+ALTER TABLE "cart" ADD COLUMN "items" text[] DEFAULT '{}' NOT NULL;
